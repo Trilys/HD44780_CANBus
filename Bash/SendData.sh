@@ -6,7 +6,7 @@ if [ $# -ne 3 ]; then
 	echo -e "        or : \"$0 can1 16 \"test over can1??\"\""
 	echo "Arg 1 is the CAN interface."
 	echo "Arg 2 is the node ID of the screen in decimal. (factory is 16)"
-	echo "Arg 3 can't be greater than 32 chars (which is the maximum capactity of the screen."
+	echo "Arg 3 can't be greater than 32 chars (which is the maximum capactity of the screen.)"
 	echo "End of $0."
 	exit 1
 fi
