@@ -44,35 +44,35 @@ while [[ $running -eq 1 ]]; do
 	resp0=0x`echo $resp | awk '{print $4}'`
 	resp1=0x`echo $resp | awk '{print $5}'`
 
-	valueUp=$(($resp0==1))+2*$(($resp0==0))+4*$(($resp1&1))
-	valueDown=$(($resp0==5))+2*$(($resp0==4))+4*$(($resp1&4))
-	valueCancel=$(($resp0==33))+2*$(($resp0==32))+4*$(($resp1&32))
+	valueUp=$(($resp0==0x81))+2*$(($resp0==0x01))+4*$(($resp1&1))
+	valueDown=$(($resp0==0x84))+2*$(($resp0==0x04))+4*$(($resp1&4))
+	valueCancel=$(($resp0==0xA0))+2*$(($resp0==0x20))+4*$(($resp1&32))
 	if [[ $valueUp -eq 1 ]]; then
-		echo -en "/\t"
+		echo -en "_/¯\t"
 	elif [[ $valueUp -eq 2 ]]; then
-		echo -en "\\ \t"
+		echo -en "¯\\_ \t"
 	elif [[ $valueUp -ge 4 ]]; then
-		echo -en "¯\t"
+		echo -en "¯¯¯\t"
 	else
-		echo -en "_\t"
+		echo -en "___\t"
 	fi
 	if [[ $valueDown -eq 1 ]]; then
-		echo -en "/\t"
+		echo -en "_/¯\t"
 	elif [[ $valueDown -eq 2 ]]; then
-		echo -en "\\ \t"
+		echo -en "¯\\_ \t"
 	elif [[ $valueDown -ge 16 ]]; then
-		echo -en "¯\t"
+		echo -en "¯¯¯\t"
 	else
-		echo -en "_\t"
+		echo -en "___\t"
 	fi
 	if [[ $valueCancel -eq 1 ]]; then
-		echo -en "/\t"
+		echo -en "_/¯\t"
 	elif [[ $valueCancel -eq 2 ]]; then
-		echo -en "\\ \t"
+		echo -en "¯\\_ \t"
 	elif [[ $valueCancel -ge 128 ]]; then
-		echo -en "¯\t"
+		echo -en "¯¯¯\t"
 	else
-		echo -en "_\t"
+		echo -en "___\t"
 	fi
 	echo -en "\r"
 done
