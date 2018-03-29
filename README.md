@@ -5,8 +5,11 @@ Repo containing Bash and C files for the Trilys CAN-Bus Screen HD44780
 
 ##Dependencies:
 ---------------
+###For all :
+* A BeagleBone,
+* Trilys_CAN_creator to create CAN0 or CAN1 (https://github.com/Trilys/canbus_on_beaglebone).  
+
 ###For bash
-* A BeagleBone,  
 * can-utils installed and ready to use: https://github.com/linux-can/can-utils  
 
 ##Execution:
