@@ -104,65 +104,65 @@ int main(int argc, char *argv[])
 /*		CAN_receive_lite_multifilters(can_num_interface, 1, can_id_filter, MAX_TIME_CANRC_WAITER, &idReceived, message_can, &sizeOfCAN);*/
 		CAN_receive_lite(can_num_interface, can_id_filter, MAX_TIME_CANRC_WAITER, message_can, &sizeOfCAN);
 		if (sizeOfCAN==2) {
-			valueUp		=(message_can[0]==1)	+2*(message_can[0]==0)	+4*(message_can[1]&1);
-			valueRight	=(message_can[0]==3)	+2*(message_can[0]==2)	+4*(message_can[1]&2);
-			valueDown	=(message_can[0]==5)	+2*(message_can[0]==4)	+4*(message_can[1]&4);
-			valueLeft	=(message_can[0]==9)	+2*(message_can[0]==8)	+4*(message_can[1]&8);
-			valueEnter	=(message_can[0]==17)	+2*(message_can[0]==16)	+4*(message_can[1]&16);
-			valueCancel	=(message_can[0]==33)	+2*(message_can[0]==32)	+4*(message_can[1]&32);
+			valueUp		=(message_can[0]==0x81)	+2*(message_can[0]==0x01)	+4*(message_can[1]&1);
+			valueRight	=(message_can[0]==0x82)	+2*(message_can[0]==0x02)	+4*(message_can[1]&2);
+			valueDown	=(message_can[0]==0x84)	+2*(message_can[0]==0x04)	+4*(message_can[1]&4);
+			valueLeft	=(message_can[0]==0x88)	+2*(message_can[0]==0x08)	+4*(message_can[1]&8);
+			valueEnter	=(message_can[0]==0x90)	+2*(message_can[0]==0x10)	+4*(message_can[1]&16);
+			valueCancel	=(message_can[0]==0xA0)	+2*(message_can[0]==0x20)	+4*(message_can[1]&32);
 			if (valueUp==1) {
-				printf("/\t");
+				printf("_/¯\t");
 			} else if (valueUp==2) {
-				printf("\\ \t");
+				printf("¯\\_ \t");
 			} else if (valueUp>=4) {
-				printf("¯\t");
+				printf("¯¯¯\t");
 			} else {
-				printf("_\t");
+				printf("___\t");
 			}
 			if (valueRight==1) {
-				printf("/\t");
+				printf("_/¯\t");
 			} else if (valueRight==2) {
-				printf("\\ \t");
+				printf("¯\\_ \t");
 			} else if (valueRight>=8) {
-				printf("¯\t");
+				printf("¯¯¯\t");
 			} else {
-				printf("_\t");
+				printf("___\t");
 			}
 			if (valueDown==1) {
-				printf("/\t");
+				printf("_/¯\t");
 			} else if (valueDown==2) {
-				printf("\\ \t");
+				printf("¯\\_ \t");
 			} else if (valueDown>=16) {
-				printf("¯\t");
+				printf("¯¯¯\t");
 			} else {
-				printf("_\t");
+				printf("___\t");
 			}
 			if (valueLeft==1) {
-				printf("/\t");
+				printf("_/¯\t");
 			} else if (valueLeft==2) {
-				printf("\\ \t");
+				printf("¯\\_ \t");
 			} else if (valueLeft>=32) {
-				printf("¯\t");
+				printf("¯¯¯\t");
 			} else {
-				printf("_\t");
+				printf("___\t");
 			}
 			if (valueEnter==1) {
-				printf("/\t");
+				printf("_/¯\t");
 			} else if (valueEnter==2) {
-				printf("\\ \t");
+				printf("¯\\_ \t");
 			} else if (valueEnter>=64) {
-				printf("¯\t");
+				printf("¯¯¯\t");
 			} else {
-				printf("_\t");
+				printf("___\t");
 			}
 			if (valueCancel==1) {
-				printf("/\t");
+				printf("_/¯\t");
 			} else if (valueCancel==2) {
-				printf("\\ \t");
+				printf("¯\\_ \t");
 			} else if (valueCancel>=128) {
-				printf("¯\t");
+				printf("¯¯¯\t");
 			} else {
-				printf("_\t");
+				printf("___\t");
 			}
 			printf("\r",message_can[0], message_can[1]);
 			
