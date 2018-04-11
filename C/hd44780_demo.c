@@ -69,11 +69,6 @@ void local_sigterm(int signo)
 
 int main(int argc, char *argv[])
 {
-	//Catch ctrl_c to stop the prog
-	signal(SIGTERM, local_sigterm);
-	signal(SIGHUP, local_sigterm);
-	signal(SIGINT, local_sigterm);
-	
 	if (argc!=3 || strstr(argv[1], "can") == NULL || (strcmp(argv[1], "can")!=48 && strcmp(argv[1], "can")!=49)) {
 		print_usage(argv[0]);
 		exit(EXIT_FAILURE);
@@ -180,6 +175,12 @@ int main(int argc, char *argv[])
 	
 	//Main loop
 	while (running) {
+	
+		//Catch ctrl_c to stop the prog
+		signal(SIGTERM, local_sigterm);
+		signal(SIGHUP, local_sigterm);
+		signal(SIGINT, local_sigterm);
+	
 		//Reset everything first
 		idReceived=0;
 		for (i = 0; i < 8; i += 1) {

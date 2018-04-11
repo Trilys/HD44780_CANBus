@@ -14,4 +14,4 @@
 #define ID \x00\x00
 #define PSW \xDF\x4B
 
-#define MAX_TIME_CANRC_WAITER 5000
+#define MAX_TIME_CANRC_WAITER 30000
